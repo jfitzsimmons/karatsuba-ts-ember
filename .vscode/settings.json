@@ -1,5 +1,7 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "prettier.semi": false
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "typescript.format.semicolons": "remove"
 }

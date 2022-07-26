@@ -65,6 +65,7 @@ export default class WelcomePageComponent extends Component {
 
   get isTestJpf() {
     //TESTJPF WORKS
+    //Remeber that github actions downs't like your linting testjpf
     return 'testjpf';
   }
 
