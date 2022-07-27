@@ -254,6 +254,21 @@
   </div>
   <div id='steps' data-karatsuba-target='steps' class='steps inactive'>
 
+    {{#each this.figures as |figure|}}
+      <div><span>figurelevel1: {{figure.level}}</span>
+        <Figure
+          @level={{figure.level}}
+          @bce={{figure.bce}}
+          @stepB={{figure.stepB}}
+          @stepC={{figure.stepC}}
+          @stepE={{figure.stepe}}
+          @stepsR={{figure.stepsR}}
+          @dividers={{figure.dividers}}
+        />
+      </div>
+
+    {{/each}}
+
     <div class='steps__row steps__rowl0'>
       <div class='steps__savings'>
         <span class='red'>Single digit multiplications</span>

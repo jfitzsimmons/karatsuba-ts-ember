@@ -92,6 +92,10 @@ export default class WelcomePageComponent extends Component {
     const stepC = bce[1] ? bce[1]! : singles[1]!;
     const stepsR = steps.reverse();
 
+    //TESTJPF
+    //come up with a better model?  Arrays not cool with ember.
+    //controllers seem like the way:
+    //https://guides.emberjs.com/v3.14.0/controllers/
     const figure: Figure = {
       level,
       bce,
@@ -102,7 +106,7 @@ export default class WelcomePageComponent extends Component {
       dividers,
     };
 
-    this.figures.push(figure);
+    this.figures.pushObject(figure);
     //return FigureTemplate(level, bce, stepB!, stepC!, stepE!, stepsR, dividers);
   }
 
@@ -122,6 +126,8 @@ export default class WelcomePageComponent extends Component {
     const stepsSaved = /*html*/ `<div class="steps__savings"> <span class="red">Single digit multiplications</span> for ${_nums[0]} x ${_nums[1]}:<br/>Karatsuba: ${singles.length} | Standard: ${standardSteps}</div>`;
     newRow.innerHTML = stepsSaved;
     this.Figure(level);
+    console.log('this.figures');
+    console.log(this.figures);
     //const figure: string | null =
     //newRow.classList.add(`steps__row`, `steps__row${level}`);
     //newRow.innerHTML += figure;
