@@ -1,12 +1,11 @@
 //import { setComponentTemplate } from '@ember/component';
 //import { hbs } from 'ember-cli-htmlbars';
-import { getOwner } from '@ember/application';
+//import { getOwner } from '@ember/application';
 //import { VERSION } from '@ember/version';
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { FigureTemplate } from './figure';
-
+import { Figure } from '../models/karatsuba';
 //import './components.css';
 /** 
 export default class WelcomePageComponent extends Component {
@@ -42,7 +41,7 @@ export default class WelcomePageComponent extends Component {
 //import * as Turbo from "@hotwired/turbo";
 //import { FigureTemplate } from "../templates/figure.html";
 import { isSingle } from '../helpers/base';
-import { Input } from '@ember/component';
+//import { Input } from '@ember/component';
 
 /** testjpf
  *
@@ -71,14 +70,10 @@ export default class WelcomePageComponent extends Component {
     //Remeber that github actions downs't like your linting testjpf
     return 'testjpf';
   }
+  @tracked figures: Figure[] = [];
   @tracked num01: number = 2531;
   @tracked num02: number = 1467;
-  /** 
-  @tracked values: [number, number] = [
-    parseInt(WelcomePageComponent.numsTargets[0]!.value),
-    parseInt(WelcomePageComponent.numsTargets[1]!.value),
-  ];
-*/
+
   connect() {
     const btnB: HTMLElement = document.getElementById('l0BButton')!;
     btnB.addEventListener('click', (e) => this.calculate(e, [25, 14], 1, btnB));
@@ -91,13 +86,24 @@ export default class WelcomePageComponent extends Component {
   }
 
   Figure(level: string) {
-    const stepE = bce[2] ? bce[2] : singles[2];
+    const stepE = bce[2] ? bce[2]! : singles[2]!;
     if (stepE && stepE[0] * stepE[1] > stepMax) return null;
-    const stepB = bce[0] ? bce[0] : singles[0];
-    const stepC = bce[1] ? bce[1] : singles[1];
+    const stepB = bce[0] ? bce[0]! : singles[0]!;
+    const stepC = bce[1] ? bce[1]! : singles[1]!;
     const stepsR = steps.reverse();
 
-    return FigureTemplate(level, bce, stepB!, stepC!, stepE!, stepsR, dividers);
+    const figure: Figure = {
+      level,
+      bce,
+      stepB,
+      stepC,
+      stepE,
+      stepsR,
+      dividers,
+    };
+
+    this.figures.push(figure);
+    //return FigureTemplate(level, bce, stepB!, stepC!, stepE!, stepsR, dividers);
   }
 
   createFigure(level: string, nums: [number, number]) {
@@ -115,11 +121,16 @@ export default class WelcomePageComponent extends Component {
 
     const stepsSaved = /*html*/ `<div class="steps__savings"> <span class="red">Single digit multiplications</span> for ${_nums[0]} x ${_nums[1]}:<br/>Karatsuba: ${singles.length} | Standard: ${standardSteps}</div>`;
     newRow.innerHTML = stepsSaved;
+    this.Figure(level);
+    //const figure: string | null =
+    //newRow.classList.add(`steps__row`, `steps__row${level}`);
+    //newRow.innerHTML += figure;
 
-    const figure: string | null = this.Figure(level);
-    newRow.classList.add(`steps__row`, `steps__row${level}`);
-    newRow.innerHTML += figure;
-
+    //instead of thinking about appending and removing
+    //push to a tracked state array? TESTJPF!!!
+    //FigureTemplate(level, bce, stepB!, stepC!, stepE!, stepsR, dividers);
+    /** TESTJPF  Redo and add back btn functions!!! */
+    /**
     if (figure) {
       WelcomePageComponent.stepsTarget!.appendChild(newRow);
       if (!isSingle(bNums[0], bNums[1])) {
@@ -144,6 +155,7 @@ export default class WelcomePageComponent extends Component {
       WelcomePageComponent.stepsTarget!.appendChild(newRow);
       newRow.innerHTML += `<div>ERROR: Result is too large</div>`;
     }
+     */
   }
 
   setActiveButtons(level: number, button: HTMLElement) {
