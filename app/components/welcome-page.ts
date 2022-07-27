@@ -3,6 +3,7 @@
 import { getOwner } from '@ember/application';
 //import { VERSION } from '@ember/version';
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 import { FigureTemplate } from './figure';
 
 //import './components.css';
@@ -146,13 +147,13 @@ export default class WelcomePageComponent extends Component {
     button.parentElement!.classList.add('active');
   }
 
-  calculate(
+  @action calculate(
     e: MouseEvent,
     nums: [number, number] | null,
     level: number,
     button: HTMLElement | null
   ) {
-    e.preventDefault;
+    //e.preventDefault;
     (bce.length = 0),
       (steps.length = 0),
       (singles.length = 0),
