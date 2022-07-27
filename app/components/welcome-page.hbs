@@ -224,21 +224,25 @@
     <h2 class='inputs__heading'>Karatsuba Calculator:</h2>
     <div class='inputs'>
       <div class='input-container'>
-        <input
-          data-karatsuba-target='nums'
-          type='text'
+        <Input
+          @id='num01'
+          aria-label='Enter a second multiple digit number'
           placeholder='Enter multi-digit number'
-          value='2531'
+          required='true'
+          @type='text'
+          @value={{this.num01}}
         />
         <span class='input__span'></span>
       </div>
       <span class='operator blue'>x</span>
       <div class='input-container'>
-        <input
-          data-karatsuba-target='nums'
-          type='text'
+        <Input
+          @id='num02'
+          aria-label='Enter a second multiple digit number'
           placeholder='Enter multi-digit number'
-          value='1467'
+          required='true'
+          @type='text'
+          @value={{this.num02}}
         />
         <span class='input__span'></span>
       </div>

@@ -4,6 +4,7 @@ import { getOwner } from '@ember/application';
 //import { VERSION } from '@ember/version';
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import { FigureTemplate } from './figure';
 
 //import './components.css';
@@ -41,6 +42,7 @@ export default class WelcomePageComponent extends Component {
 //import * as Turbo from "@hotwired/turbo";
 //import { FigureTemplate } from "../templates/figure.html";
 import { isSingle } from '../helpers/base';
+import { Input } from '@ember/component';
 
 /** testjpf
  *
@@ -69,7 +71,14 @@ export default class WelcomePageComponent extends Component {
     //Remeber that github actions downs't like your linting testjpf
     return 'testjpf';
   }
-
+  @tracked num01: number = 2531;
+  @tracked num02: number = 1467;
+  /** 
+  @tracked values: [number, number] = [
+    parseInt(WelcomePageComponent.numsTargets[0]!.value),
+    parseInt(WelcomePageComponent.numsTargets[1]!.value),
+  ];
+*/
   connect() {
     const btnB: HTMLElement = document.getElementById('l0BButton')!;
     btnB.addEventListener('click', (e) => this.calculate(e, [25, 14], 1, btnB));
@@ -98,7 +107,7 @@ export default class WelcomePageComponent extends Component {
     const newRow: HTMLElement = document.createElement('div');
     const rows: NodeListOf<Element> = document.querySelectorAll('.steps__row')!;
     const levelNumber: number = parseInt(level.slice(-1));
-    const _nums = nums ? nums : this.nums;
+    const _nums = nums ? nums : [this.num01, this.num02];
 
     if (rows.length > levelNumber)
       for (let i = rows.length - 1; i > levelNumber - 1; i--)
@@ -153,7 +162,7 @@ export default class WelcomePageComponent extends Component {
     level: number,
     button: HTMLElement | null
   ) {
-    //e.preventDefault;
+    e.preventDefault;
     (bce.length = 0),
       (steps.length = 0),
       (singles.length = 0),
@@ -164,7 +173,7 @@ export default class WelcomePageComponent extends Component {
       document.getElementById('calculator')!.classList.add('active');
       document.getElementById('steps')!.classList.remove('inactive');
     }
-    const _nums: [number, number] = nums ? nums : this.nums;
+    const _nums: [number, number] = nums ? nums : [this.num01, this.num02];
 
     standardSteps = _nums[0]!.toString().length * _nums[1]!.toString().length;
     this.karatsuba(_nums);
@@ -226,11 +235,12 @@ export default class WelcomePageComponent extends Component {
       stepB * 10 ** (2 * mid) + (stepE - stepB - stepC) * 10 ** mid + stepC
     );
   }
-
+  /**
   get nums(): [number, number] {
     return [
       parseInt(WelcomePageComponent.numsTargets[0]!.value),
       parseInt(WelcomePageComponent.numsTargets[1]!.value),
     ];
   }
+  **/
 }
