@@ -1,1 +1,30 @@
-<h1>{{{@level}}}</h1>
+  <div id="stepA" class="step stepA karat">
+    <div class="step__label">A</div>
+    <div class="stepA__grid">
+      <div>{{@bce.[0].[0]}}</div>
+      <div>{{@bce.[1].[0]}}</div>
+      <div>{{@bce.[0].[1]}}</div>
+      <div>{{@bce.[1].[1]}}</div>
+    </div>
+  </div>
+  <div>+
+    BceTemplate(level, stepB, "B") +
+    BceTemplate(level, stepC, "C") +
+    </div>
+<div id="stepD" class="step stepD blue">
+    <div class="step__label">D</div>
+    {{@stepB.[0]}} + {{@stepC.[0]}} = {{@stepE.[0]}}
+    <br />
+    {{@stepB.[1]}} + {{@stepC.[1]}} = {{@stepE.[1]}}
+  </div>
+<div>+
+    BceTemplate(level, stepE, "E") +
+    </div>
+  <div id="stepF" class="step stepF blue">
+    <div class="step__label">F</div>
+    {{@stepsR.[0].[2]}}<br />
+    - {{@stepsR.[0].[1]}}<br />
+    - {{@stepsR.[0].[0]}}
+    <hr />
+
+  </div>
