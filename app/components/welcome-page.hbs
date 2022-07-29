@@ -255,6 +255,7 @@
   <div id='steps' data-karatsuba-target='steps' class='steps inactive'>
 
     {{#each this.figures as |figure|}}
+    <!-- testjpf make typed object -->
         <Figure
           @level={{figure.level}}
           @bce={{figure.bce}}
@@ -264,6 +265,8 @@
           @stepsR={{figure.stepsR}}
           @dividers={{figure.dividers}}
           @result={{result figure.stepsR.[0]}}
+          @levelAmount={{this.figures.length}}
+          @calculate={{action this.calculate}}
         />
     {{/each}}
 

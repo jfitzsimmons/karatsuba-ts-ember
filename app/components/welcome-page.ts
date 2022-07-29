@@ -105,7 +105,8 @@ export default class WelcomePageComponent extends Component {
       stepsR,
       dividers,
     };
-
+    // if "level" exists in figures index then replace
+    // else push ...Component. testjpf
     this.figures.pushObject(figure);
     //return FigureTemplate(level, bce, stepB!, stepC!, stepE!, stepsR, dividers);
   }
@@ -180,7 +181,8 @@ export default class WelcomePageComponent extends Component {
     level: number,
     button: HTMLElement | null
   ) {
-    e.preventDefault;
+    console.log('CALCULSATE e');
+    console.log(e);
     (bce.length = 0),
       (steps.length = 0),
       (singles.length = 0),
@@ -199,7 +201,7 @@ export default class WelcomePageComponent extends Component {
     //TEST JPF changed to _nums and is untested!!!
     this.createFigure(level ? 'l' + level : 'l0', _nums);
 
-    if (button) this.setActiveButtons(level, button);
+    //if (button) this.setActiveButtons(level, button);
 
     const result = document.getElementById('result');
     if (result) console.log(`innerhtml: ${result.textContent}`);

@@ -1,3 +1,9 @@
+  <!-- 
+testjpf
+make figure.ts
+needs a tracked levelamout = this.args.figures length?!?!?
+
+    -->
   <div class= {{concat "steps__row steps__row" @level}}>
   <div id="stepA" class="step stepA karat">
     <div class="step__label">A</div>
@@ -8,18 +14,19 @@
       <div>{{@bce.[1].[1]}}</div>
     </div>
   </div>
-  <Bce @level={{level}} @step={{@stepB}} @letter="B" @classColor={{getClassColor @stepB}}
-
+  <Bce @bcelevel={{@level}} @step={{@stepB}} @letter="B" @classColor={{getClassColor @stepB.[0] @stepB.[1]}} @stepResult={{multiply @stepB.[0] @stepB.[1]}}
     ></Bce>
-  <Bce @level={{level}} @step={{@stepC}} @letter="C" @classColor={{getClassColor @stepB}}
+  <Bce @bcelevel={{@level}} @step={{@stepC}} @letter="C" @classColor={{getClassColor @stepC.[0] @stepC.[1]}} @stepResult={{multiply @stepC.[0] @stepC.[1]}}
     ></Bce>
+    <!-- for some reason this button on the chid wont send the event object TESTJPF -->
+    <button {{on "click" (fn @calculate @stepE 0 null)}}>TESTJPF</button>
 <div id="stepD" class="step stepD blue">
     <div class="step__label">D</div>
     {{@stepB.[0]}} + {{@stepC.[0]}} = {{@stepE.[0]}}
     <br />
     {{@stepB.[1]}} + {{@stepC.[1]}} = {{@stepE.[1]}}
   </div>
-  <Bce @level={{level}} @step={{@stepE}} @letter="E" @classColor={{getClassColor @stepB}}     
+  <Bce @bcelevel={{@level}} @step={{@stepE}} @letter="E" @classColor={{getClassColor @stepE.[0] @stepE.[1]}} @stepResult={{multiply @stepE.[0] @stepE.[1]}}     
     ></Bce>
   <div id="stepF" class="step stepF blue">
     <div class="step__label">F</div>
