@@ -1,3 +1,4 @@
+  <div class= {{concat "steps__row steps__row" @level}}>
   <div id="stepA" class="step stepA karat">
     <div class="step__label">A</div>
     <div class="stepA__grid">
@@ -7,28 +8,19 @@
       <div>{{@bce.[1].[1]}}</div>
     </div>
   </div>
-  <div>
-  <Bce @level={{level}} @step={{@stepB}} @letter="B"
-      id={{concat @level "stepB"}}
-    class={{concat "step stepB karat " getClassColor @stepB}}
+  <Bce @level={{level}} @step={{@stepB}} @letter="B" @classColor={{getClassColor @stepB}}
+
     ></Bce>
-  <Bce @level={{level}} @step={{@stepC}} @letter="C" 
-        id={{concat @level "stepC"}}
-    class={{concat "step stepC karat " getClassColor @stepC}}
+  <Bce @level={{level}} @step={{@stepC}} @letter="C" @classColor={{getClassColor @stepB}}
     ></Bce>
-    </div>
 <div id="stepD" class="step stepD blue">
     <div class="step__label">D</div>
     {{@stepB.[0]}} + {{@stepC.[0]}} = {{@stepE.[0]}}
     <br />
     {{@stepB.[1]}} + {{@stepC.[1]}} = {{@stepE.[1]}}
   </div>
-<div>+
-  <Bce @level={{level}} @step={{@stepE}} @letter="E"     
-    id={{concat @level "stepE"}}
-    class={{concat "step stepE karat " getClassColor @stepE}}
+  <Bce @level={{level}} @step={{@stepE}} @letter="E" @classColor={{getClassColor @stepB}}     
     ></Bce>
-    </div>
   <div id="stepF" class="step stepF blue">
     <div class="step__label">F</div>
     {{@stepsR.[0].[2]}}<br />
@@ -36,4 +28,5 @@
     - {{@stepsR.[0].[0]}}
     <hr />
 {{@result}}
+  </div>
   </div>
