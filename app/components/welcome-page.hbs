@@ -255,7 +255,6 @@
   <div id='steps' data-karatsuba-target='steps' class='steps inactive'>
 
     {{#each this.figures as |figure|}}
-      <div><span>figurelevel1: {{figure.level}}</span>
         <Figure
           @level={{figure.level}}
           @bce={{figure.bce}}
@@ -264,9 +263,8 @@
           @stepE={{figure.stepe}}
           @stepsR={{figure.stepsR}}
           @dividers={{figure.dividers}}
+          @result={{result figure.stepsR.[0]}}
         />
-      </div>
-
     {{/each}}
 
     <div class='steps__row steps__rowl0'>
