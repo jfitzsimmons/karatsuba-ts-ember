@@ -7,9 +7,15 @@
       <div>{{@bce.[1].[1]}}</div>
     </div>
   </div>
-  <div>+
-    BceTemplate(level, stepB, "B") +
-    BceTemplate(level, stepC, "C") +
+  <div>
+  <Bce @level={{level}} @step={{@stepB}} @letter="B"
+      id={{concat @level "stepB"}}
+    class={{concat "step stepB karat " getClassColor @stepB}}
+    ></Bce>
+  <Bce @level={{level}} @step={{@stepC}} @letter="C" 
+        id={{concat @level "stepC"}}
+    class={{concat "step stepC karat " getClassColor @stepC}}
+    ></Bce>
     </div>
 <div id="stepD" class="step stepD blue">
     <div class="step__label">D</div>
@@ -18,7 +24,10 @@
     {{@stepB.[1]}} + {{@stepC.[1]}} = {{@stepE.[1]}}
   </div>
 <div>+
-    BceTemplate(level, stepE, "E") +
+  <Bce @level={{level}} @step={{@stepE}} @letter="E"     
+    id={{concat @level "stepE"}}
+    class={{concat "step stepE karat " getClassColor @stepE}}
+    ></Bce>
     </div>
   <div id="stepF" class="step stepF blue">
     <div class="step__label">F</div>
