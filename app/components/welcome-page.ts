@@ -97,6 +97,7 @@ export default class WelcomePageComponent extends Component {
     //come up with a better model?  Arrays not cool with ember.
     //controllers seem like the way:
     //https://guides.emberjs.com/v3.14.0/controllers/
+    console.log(`top level LEVVEL : ${level}`);
     const figure: Figure = {
       level,
       bce,
@@ -106,6 +107,7 @@ export default class WelcomePageComponent extends Component {
       stepsR,
       dividers,
     };
+
     // if "level" exists in figures index then replace
     // else push ...Component. testjpf
     this.figures.pushObject(figure);
@@ -113,20 +115,29 @@ export default class WelcomePageComponent extends Component {
   }
 
   createFigure(level: string, nums: [number, number]) {
-    const bNums = bce[0]!;
-    const cNums = bce[1]!;
-    const eNums = bce[2]!;
-    const newRow: HTMLElement = document.createElement('div');
-    const rows: NodeListOf<Element> = document.querySelectorAll('.steps__row')!;
+    //const bNums = bce[0]!;
+    //const cNums = bce[1]!;
+    //const eNums = bce[2]!;
+    //const newRow: HTMLElement = document.createElement('div');
+    //const rows: NodeListOf<Element> = document.querySelectorAll('.steps__row')!;
     const levelNumber: number = parseInt(level.slice(-1));
-    const _nums = nums ? nums : [this.num01, this.num02];
 
+    if (this.figures.length > levelNumber) {
+      console.log(
+        `levelNumber: ${levelNumber}, this.figures.length - levelNumber: ${
+          this.figures.length - levelNumber
+        }`
+      );
+      this.figures.removeAt(levelNumber, this.figures.length - levelNumber);
+    }
+    const _nums = nums ? nums : [this.num01, this.num02];
+    /** 
     if (rows.length > levelNumber)
       for (let i = rows.length - 1; i > levelNumber - 1; i--)
         rows[i]!.parentNode!.removeChild(rows[i]!);
-
+*/
     const stepsSaved = /*html*/ `<div class="steps__savings"> <span class="red">Single digit multiplications</span> for ${_nums[0]} x ${_nums[1]}:<br/>Karatsuba: ${singles.length} | Standard: ${standardSteps}</div>`;
-    newRow.innerHTML = stepsSaved;
+    //newRow.innerHTML = stepsSaved;
     this.Figure(level);
     console.log('this.figures');
     console.log(this.figures);
@@ -179,7 +190,7 @@ export default class WelcomePageComponent extends Component {
   @action calculate(
     e: MouseEvent | null,
     nums: [number, number] | null,
-    level: number,
+    level: string,
     button: HTMLElement | null
   ) {
     console.log('button!!!');
@@ -197,17 +208,19 @@ export default class WelcomePageComponent extends Component {
     console.log(nums);
     const _nums: [number, number] = nums ? nums : [this.num01, this.num02];
 
-    standardSteps = _nums[0]!.toString().length * _nums[1]!.toString().length;
+    //standardSteps = _nums[0]!.toString().length * _nums[1]!.toString().length;
     this.karatsuba(_nums);
     // make return result so you can use for testing??
     //TEST JPF changed to _nums and is untested!!!
-    this.createFigure(level ? 'l' + level : 'l0', _nums);
+    let test: number = parseInt(level) + 1;
+    console.log(`level: ${level} | level + 1: ${level + 1} | test: ${test}`);
+    this.createFigure(level ? 'l' + test : 'l0', _nums);
 
     //if (button) this.setActiveButtons(level, button);
 
-    const result = document.getElementById('result');
-    if (result) console.log(`innerhtml: ${result.textContent}`);
-
+    //const result = document.getElementById('result');
+    //if (result) console.log(`innerhtml: ${result.textContent}`);
+    /** 
     console.log('bce');
     console.dir(bce);
     console.log('steps');
@@ -216,6 +229,7 @@ export default class WelcomePageComponent extends Component {
     console.dir(singles);
     console.log('dividers');
     console.dir(dividers);
+    */
   }
 
   splitter = (whole: string, divider: number) => {
