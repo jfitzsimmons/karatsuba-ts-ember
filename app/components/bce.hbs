@@ -4,5 +4,5 @@
   x {{@step.[1]}}
   <hr />
   {{@stepResult}}
-  <BceButton @level={{level}} @letter="B"></BceButton>
+{{#if @isDouble}} <BceButton @level={{level}} @letter="B" @calculate={{fn @calculate null @step 0 null}}></BceButton>{{/if}}
 </div>

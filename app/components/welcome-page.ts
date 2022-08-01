@@ -74,17 +74,18 @@ export default class WelcomePageComponent extends Component {
   @tracked num01: number = 2531;
   @tracked num02: number = 1467;
 
-  connect() {
+  /**
+  connect() { 
     const btnB: HTMLElement = document.getElementById('l0BButton')!;
-    btnB.addEventListener('click', (e) => this.calculate(e, [25, 14], 1, btnB));
+    btnB.addEventListener('click', () => this.calculate([25, 14], 1, btnB));
 
     const btnC: HTMLElement = document.getElementById('l0CButton')!;
-    btnC.addEventListener('click', (e) => this.calculate(e, [31, 67], 1, btnC));
+    btnC.addEventListener('click', () => this.calculate([31, 67], 1, btnC));
 
     const btnE: HTMLElement = document.getElementById('l0EButton')!;
-    btnE.addEventListener('click', (e) => this.calculate(e, [56, 81], 1, btnE));
+    btnE.addEventListener('click', () => this.calculate([56, 81], 1, btnE));
   }
-
+*/
   Figure(level: string) {
     const stepE = bce[2] ? bce[2]! : singles[2]!;
     if (stepE && stepE[0] * stepE[1] > stepMax) return null;
@@ -176,13 +177,13 @@ export default class WelcomePageComponent extends Component {
   }
 
   @action calculate(
-    e: MouseEvent,
+    e: MouseEvent | null,
     nums: [number, number] | null,
     level: number,
     button: HTMLElement | null
   ) {
-    console.log('CALCULSATE e');
-    console.log(e);
+    console.log('button!!!');
+    console.log(button);
     (bce.length = 0),
       (steps.length = 0),
       (singles.length = 0),
@@ -193,6 +194,7 @@ export default class WelcomePageComponent extends Component {
       document.getElementById('calculator')!.classList.add('active');
       document.getElementById('steps')!.classList.remove('inactive');
     }
+    console.log(nums);
     const _nums: [number, number] = nums ? nums : [this.num01, this.num02];
 
     standardSteps = _nums[0]!.toString().length * _nums[1]!.toString().length;
