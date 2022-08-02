@@ -1,0 +1,35 @@
+<div class= {{concat "steps__row steps__row" @level}}>
+           <StepSavings @numsInput={{@numsInput}} @stepSavings={{@stepSavings}}
+    ></StepSavings>
+  <div id="stepA" class="step stepA karat">
+    <div class="step__label">A</div>
+    <div class="stepA__grid">
+      <div>{{@steps.b.[0]}}</div>
+      <div>{{@steps.c.[0]}}</div>
+      <div>{{@steps.b.[1]}}</div>
+      <div>{{@steps.c.[1]}}</div>
+    </div>
+  </div>
+  <Bce @bcelevel={{@level}} @step={{@steps.b}} @letter="B" @classColor={{getClassColor @steps.b.[0] @steps.b.[1]}} @stepResult={{multiply @steps.b.[0] @steps.b.[1]}} @calculate={{@calculate}} @isDouble={{isDouble @steps.b.[0] @steps.b.[1]}}
+    ></Bce>
+  <Bce @bcelevel={{@level}} @step={{@steps.c}} @letter="C" @classColor={{getClassColor @steps.c.[0] @steps.c.[1]}} @stepResult={{multiply @steps.c.[0] @steps.c.[1]}} @calculate={{@calculate}} @isDouble={{isDouble @steps.c.[0] @steps.c.[1]}}
+    ></Bce>
+<div id="stepD" class="step stepD blue">
+    <div class="step__label">D</div>
+    {{@steps.b.[0]}} + {{@steps.c.[0]}} = {{@steps.e.[0]}}
+    <br />
+    {{@steps.b.[1]}} + {{@steps.c.[1]}} = {{@steps.e.[1]}}
+  </div>
+  <Bce @bcelevel={{@level}} @step={{@steps.e}} @letter="E" @classColor={{getClassColor @steps.e.[0] @steps.e.[1]}} @stepResult={{multiply @steps.e.[0] @steps.e.[1]}} @calculate={{@calculate}} @isDouble={{isDouble @steps.e.[0] @steps.e.[1]}}    
+    ></Bce>
+  <div id="stepF" class="step stepF blue">
+    <div class="step__label">F</div>
+    {{@stepsR.[2]}}<br />
+    - {{@stepsR.[1]}}<br />
+    - {{@stepsR.[0]}}
+    <hr />
+{{@result}}
+  </div>
+   <Result @stepsR={{@stepsR}} @divider={{@divider}} @result={{@result}}
+    ></Result>
+  </div>
