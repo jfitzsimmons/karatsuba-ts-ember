@@ -31,12 +31,8 @@ export default class WelcomePageComponent extends Component {
         c: [31, 67],
         e: [56, 81],
       },
-      stepsR: [
-        [350, 2077, 4536],
-        [18, 7, 52],
-        [2, 20, 35],
-      ],
-      dividers: [2, 2],
+      stepsR: [350, 2077, 4536],
+      divider: 2,
       stepSavings: [9, 16],
       numsInput: [2531, 1467],
     },
@@ -63,8 +59,8 @@ export default class WelcomePageComponent extends Component {
         c,
         e,
       },
-      stepsR,
-      dividers,
+      stepsR: stepsR[0]!,
+      divider: dividers[0]!,
       stepSavings: [singles.length, standardSteps],
       numsInput: nums,
     };
@@ -90,11 +86,24 @@ export default class WelcomePageComponent extends Component {
     console.log(this.figures);
   }
 
+  setActiveButtons(level: string, button: string) {
+    const _button = document.getElementById(button);
+    const row = document.getElementsByClassName(
+      `steps__rowl${level.slice(-1)}`
+    );
+    const actives = row[0]!.querySelectorAll('.active');
+    actives.forEach((a) => {
+      a.classList.remove('active');
+    });
+    _button!.classList.add('active');
+    _button!.parentElement!.classList.add('active');
+  }
+
   @action calculate(
     e: MouseEvent | null,
     nums: [number, number] | null,
     level: string,
-    button: HTMLElement | null
+    button: string | null
   ) {
     if (e) e.preventDefault;
     console.log('button!!!');
@@ -109,6 +118,10 @@ export default class WelcomePageComponent extends Component {
       document.getElementById('calculator')!.classList.add('active');
       document.getElementById('steps')!.classList.remove('inactive');
     }
+
+    //active buttons per row testjpf
+    if (button) this.setActiveButtons(level, button);
+
     console.log(nums);
     const _nums: [number, number] = nums ? nums : [this.num01, this.num02];
 
