@@ -1,9 +1,11 @@
+export interface Steps {
+  b: [number, number];
+  c: [number, number];
+  e: [number, number] | null;
+}
 export interface Figure {
   level: string;
-  bce: [number, number][];
-  stepB: [number, number];
-  stepC: [number, number];
-  stepE: [number, number] | null;
+  steps: Steps;
   stepsR: [number, number, number][];
   dividers: number[];
   stepSavings: [number, number];

@@ -14,25 +14,19 @@ function resultPrint([stepsR, divider]: [[number, number, number], number]) {
   if (result > max) {
     const resultPrint1st16 = resultPrint.substring(0, 14);
     const diff = resultPrint.length - 14; //max.length-1;
-    const stepB = stepsR[0].toString() + trailingZeros(divider * 2);
-    const stepC = stepsR[1].toString();
+    const b = stepsR[0].toString() + trailingZeros(divider * 2);
+    const c = stepsR[1].toString();
     const stepF =
       (stepsR[2] - stepsR[1] - stepsR[0]).toString() + trailingZeros(divider);
-    const remainder1 = stepC.substring(stepC.length - diff, stepC.length);
+    const remainder1 = c.substring(c.length - diff, c.length);
     const remainder2 = stepF.substring(stepF.length - diff, stepF.length);
-    const remainder3 = stepB.substring(stepB.length - diff, stepB.length);
-
-    console.log(`resultPrint1st16: ${resultPrint1st16} | diff:  ${diff}`);
-    console.log(`stepC: ${stepC} | stepF: ${stepF}`);
-    console.log(`remainder1: ${remainder1} | remainder2: ${remainder2}`);
+    const remainder3 = b.substring(b.length - diff, b.length);
 
     const numberCarrier = (
       parseInt(remainder1) +
       parseInt(remainder2) +
       parseInt(remainder3)
     ).toString();
-
-    console.log(`numberCarrier: ${numberCarrier}`);
 
     resultPrint =
       resultPrint1st16 +

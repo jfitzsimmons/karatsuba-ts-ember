@@ -26,14 +26,11 @@ export default class WelcomePageComponent extends Component {
   @tracked figures: Figure[] = [
     {
       level: 'l0',
-      bce: [
-        [25, 14],
-        [31, 67],
-        [56, 81],
-      ],
-      stepB: [25, 14],
-      stepC: [31, 67],
-      stepE: [56, 81],
+      steps: {
+        b: [25, 14],
+        c: [31, 67],
+        e: [56, 81],
+      },
       stepsR: [
         [350, 2077, 4536],
         [18, 7, 52],
@@ -48,10 +45,10 @@ export default class WelcomePageComponent extends Component {
   @tracked num02: number = 1467;
 
   Figure(level: string, nums: [number, number]) {
-    const stepE = bce[2] ? bce[2]! : singles[2]!;
-    if (stepE && stepE[0] * stepE[1] > stepMax) return null;
-    const stepB = bce[0] ? bce[0]! : singles[0]!;
-    const stepC = bce[1] ? bce[1]! : singles[1]!;
+    const e: [number, number] | null = bce[2]! ? bce[2]! : singles[2]!;
+    if (e && e[0] * e[1] > stepMax) return null;
+    const b: [number, number] = bce[0]! ? bce[0]! : singles[0]!;
+    const c: [number, number] = bce[1]! ? bce[1]! : singles[1]!;
     const stepsR = steps.reverse();
 
     //TESTJPF
@@ -61,10 +58,11 @@ export default class WelcomePageComponent extends Component {
     console.log(`top level LEVVEL : ${level}`);
     const figure: Figure = {
       level,
-      bce,
-      stepB,
-      stepC,
-      stepE,
+      steps: {
+        b,
+        c,
+        e,
+      },
       stepsR,
       dividers,
       stepSavings: [singles.length, standardSteps],
@@ -86,7 +84,7 @@ export default class WelcomePageComponent extends Component {
       this.figures.removeAt(levelNumber, this.figures.length - levelNumber);
     }
     const _nums: [number, number] = nums ? nums : [this.num01, this.num02];
-    standardSteps = _nums[0]!.toString().length * _nums[1]!.toString().length;
+    standardSteps = _nums[0].toString().length * _nums[1].toString().length;
     this.Figure(level, _nums);
     console.log('this.figures');
     console.log(this.figures);
@@ -161,14 +159,14 @@ export default class WelcomePageComponent extends Component {
 
     bce.push([n1h1, n2h1], [n1h2, n2h2], [n1h2 + n1h1, n2h2 + n2h1]);
 
-    const stepB: number = this.karatsuba([n1h1, n2h1]);
-    const stepC: number = this.karatsuba([n1h2, n2h2]);
-    const stepE: number = this.karatsuba([n1h2 + n1h1, n2h2 + n2h1]);
+    const stepsb: number = this.karatsuba([n1h1, n2h1]);
+    const stepsc: number = this.karatsuba([n1h2, n2h2]);
+    const stepse: number = this.karatsuba([n1h2 + n1h1, n2h2 + n2h1]);
 
-    steps.push([stepB, stepC, stepE]);
+    steps.push([stepsb, stepsc, stepse]);
 
     return (
-      stepB * 10 ** (2 * mid) + (stepE - stepB - stepC) * 10 ** mid + stepC
+      stepsb * 10 ** (2 * mid) + (stepse - stepsb - stepsc) * 10 ** mid + stepsc
     );
   }
 }
