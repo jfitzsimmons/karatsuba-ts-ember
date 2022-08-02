@@ -224,6 +224,7 @@
     <h2 class='inputs__heading'>Karatsuba Calculator:</h2>
     <div class='inputs'>
       <div class='input-container'>
+        <label for="num01">enter a multi-digit number</label>
         <Input
           @id='num01'
           aria-label='Enter a second multiple digit number'
@@ -236,6 +237,7 @@
       </div>
       <span class='operator blue'>x</span>
       <div class='input-container'>
+        <label for="num02">enter a multi-digit number</label>
         <Input
           @id='num02'
           aria-label='Enter a second multiple digit number'
@@ -246,7 +248,7 @@
         />
         <span class='input__span'></span>
       </div>
-      <button
+      <button type="button"
         {{on 'click' this.calculate}}
         class='calc-button'
       >Calculate</button>
@@ -255,10 +257,6 @@
   <div id='steps' data-karatsuba-target='steps' class='steps inactive'>
 
     {{#each this.figures as |figure|}}
-    <!-- testjpf make typed object -->
-    <!--
-      TestJPF  Should this be a class constructor? 
-      -->
         <Figure
           @level={{figure.level}}
           @steps={{figure.steps}}
@@ -266,7 +264,7 @@
           @divider={{figure.divider}}
           @result={{result figure.stepsR}}
           @levelAmount={{this.figures.length}}
-          @calculate={{action this.calculate}}
+          @calculate={{fn this.calculate}}
           @stepSavings={{figure.stepSavings}}
           @numsInput={{figure.numsInput}}
         />
