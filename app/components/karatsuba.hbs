@@ -226,8 +226,7 @@
       <div class='input-container'>
         <label for="num01">enter a multi-digit number</label>
         <Input
-          @id='num01'
-          aria-label='Enter a second multiple digit number'
+          id='num01'
           placeholder='Enter multi-digit number'
           required='true'
           @type='text'
@@ -239,8 +238,7 @@
       <div class='input-container'>
         <label for="num02">enter a multi-digit number</label>
         <Input
-          @id='num02'
-          aria-label='Enter a second multiple digit number'
+          id='num02'
           placeholder='Enter multi-digit number'
           required='true'
           @type='text'
@@ -264,7 +262,7 @@
           @divider={{figure.divider}}
           @result={{result figure.stepsR}}
           @levelAmount={{this.figures.length}}
-          @calculate={{fn this.calculate}}
+          @calculate={{this.calculate}}
           @stepSavings={{figure.stepSavings}}
           @numsInput={{figure.numsInput}}
         />
