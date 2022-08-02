@@ -21,12 +21,33 @@ const steps: [number, number, number][] = [];
 const dividers: number[] = [];
 const stepMax = 3602879702092599;
 let standardSteps = 0;
+let karatsubaSteps = 0;
 export default class WelcomePageComponent extends Component {
-  @tracked figures: Figure[] = [];
+  @tracked figures: Figure[] = [
+    {
+      level: 'l0',
+      bce: [
+        [25, 14],
+        [31, 67],
+        [56, 81],
+      ],
+      stepB: [25, 14],
+      stepC: [31, 67],
+      stepE: [56, 81],
+      stepsR: [
+        [350, 2077, 4536],
+        [18, 7, 52],
+        [2, 20, 35],
+      ],
+      dividers: [2, 2],
+      stepSavings: [9, 16],
+      numsInput: [2531, 1467],
+    },
+  ];
   @tracked num01: number = 2531;
   @tracked num02: number = 1467;
 
-  Figure(level: string) {
+  Figure(level: string, nums: [number, number]) {
     const stepE = bce[2] ? bce[2]! : singles[2]!;
     if (stepE && stepE[0] * stepE[1] > stepMax) return null;
     const stepB = bce[0] ? bce[0]! : singles[0]!;
@@ -46,6 +67,8 @@ export default class WelcomePageComponent extends Component {
       stepE,
       stepsR,
       dividers,
+      stepSavings: [singles.length, standardSteps],
+      numsInput: nums,
     };
 
     this.figures.pushObject(figure);
@@ -62,9 +85,9 @@ export default class WelcomePageComponent extends Component {
       );
       this.figures.removeAt(levelNumber, this.figures.length - levelNumber);
     }
-    const _nums = nums ? nums : [this.num01, this.num02];
-
-    this.Figure(level);
+    const _nums: [number, number] = nums ? nums : [this.num01, this.num02];
+    standardSteps = _nums[0]!.toString().length * _nums[1]!.toString().length;
+    this.Figure(level, _nums);
     console.log('this.figures');
     console.log(this.figures);
   }
@@ -98,14 +121,13 @@ export default class WelcomePageComponent extends Component {
     console.log(`level: ${level} | level + 1: ${level + 1} | test: ${test}`);
     this.createFigure(level ? 'l' + test : 'l0', _nums);
 
-    /** 
     console.log('bce');
     console.dir(bce);
     console.log('steps');
     console.dir(steps);
     console.log('singles');
     console.dir(singles);
-    console.log('dividers');
+    /**    console.log('dividers');
     console.dir(dividers);
     */
   }

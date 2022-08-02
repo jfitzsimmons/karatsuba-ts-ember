@@ -6,4 +6,6 @@ export interface Figure {
   stepE: [number, number] | null;
   stepsR: [number, number, number][];
   dividers: number[];
+  stepSavings: [number, number];
+  numsInput: [number, number];
 }

@@ -270,72 +270,9 @@
           @result={{result figure.stepsR.[0]}}
           @levelAmount={{this.figures.length}}
           @calculate={{action this.calculate}}
+          @stepSavings={{figure.stepSavings}}
+          @numsInput={{figure.numsInput}}
         />
     {{/each}}
-<!--
-  TESTJPF USE THIS AS default state for model
-    <div class='steps__row steps__rowl0'>
-      <div class='steps__savings'>
-        <span class='red'>Single digit multiplications</span>
-        for 2531 x 1467:<br />
-        Karatsuba: 9 | Standard: 16</div>
-      <div id='stepA' class='step stepA karat'>
-        <div class='step__label'>A</div>
-        <div class='stepA__grid'>
-          <div>25</div>
-          <div>31</div>
-          <div>14</div>
-          <div>67</div>
-        </div>
-      </div>
-
-      <div id='l0stepB' class='step stepB karat gray'>
-        <div class='step__label'>B</div>
-        25<br />
-        x 14
-        <hr />
-        350
-        <button id='l0BButton' class='step__button'>⇣</button></div>
-      <div id='l0stepC' class='step stepC karat gray'>
-        <div class='step__label'>C</div>
-        31<br />
-        x 67
-        <hr />
-        2077
-        <button id='l0CButton' class='step__button'>⇣</button></div>
-      <div id='stepD' class='step stepD blue'>
-        <div class='step__label'>D</div>
-        25 + 31 = 56
-        <br />
-        14 + 67 = 81
-      </div>
-
-      <div id='l0stepE' class='step stepE karat gray'>
-        <div class='step__label'>E</div>
-        56<br />
-        x 81
-        <hr />
-        4536
-        <button id='l0EButton' class='step__button'>⇣</button></div>
-      <div id='stepF' class='step stepF blue'>
-        <div class='step__label'>F</div>
-        4536<br />
-        - 2077<br />
-        - 350
-        <hr />
-        2109
-      </div>
-
-      <div id='stepG' class='step stepG blue'>
-        <div class='step__label'>G</div>
-        350<span class='zeros'>0000</span><br />
-        + 2109<span class='zeros'>00</span><br />
-        + 2077
-        <hr />
-        <span id='result'>3712977</span>
-        <br />
-      </div>
-    </div>
-    -->
   </div>
 </main>
