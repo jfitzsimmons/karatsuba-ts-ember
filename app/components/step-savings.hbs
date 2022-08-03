@@ -1,1 +1,9 @@
-<div class="steps__savings"> <span class="red">Single digit multiplications</span> for {{@numsInput.[0]}} x {{@numsInput.[1]}}:<br/>Karatsuba: {{@stepSavings.[0]}} | Standard: {{@stepSavings.[1]}}</div>
+<div class="steps__savings">
+  <span class="red">Single digit multiplications</span>
+  for
+  {{get @numsInput 0}}
+  x
+  {{get @numsInput 1}}:<br />Karatsuba:
+  {{get @stepSavings 0}}
+  | Standard:
+  {{get @stepSavings 1}}</div>
