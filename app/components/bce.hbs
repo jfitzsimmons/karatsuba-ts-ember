@@ -1,8 +1,22 @@
-<div id={{concat "step" @letter}} class={{concat "step step" @letter " karat " @classColor}}>
-  <div class="step__label">{{@letter}}</div>
-  {{@step.[0]}}<br />
-  x {{@step.[1]}}
+<div
+  id={{concat 'step' @letter}}
+  class={{concat 'step step' @letter ' karat ' @classColor}}
+>
+  <div class='step__label'>{{@letter}}</div>
+  {{get @step 0}}<br />
+  x
+  {{get @step 1}}
   <hr />
   {{@stepResult}}
-{{#if @isDouble}}<BceButton @level={{@bcelevel}} @letter={{@letter}} @calculate={{fn @calculate null @step (get @bcelevel 1) (concat @bcelevel @letter "Button")}}></BceButton>{{/if}}
+  {{#if @isDouble}}<BceButton
+      @level={{@bcelevel}}
+      @letter={{@letter}}
+      @calculate={{fn
+        @calculate
+        null
+        @step
+        (get @bcelevel 1)
+        (concat @bcelevel @letter 'Button')
+      }}
+    />{{/if}}
 </div>
