@@ -8,7 +8,7 @@ function resultPrint([stepsR, divider]: [[number, number, number], number]) {
     stepsR[0] * 10 ** (divider * 2) +
     (stepsR[2] - stepsR[1] - stepsR[0]) * 10 ** divider +
     stepsR[1];
-  if (result > 999999999889999900000) return null;
+  if (result > 9998999999999992000) return 'Congrats! You broke it.';
   let resultPrint = result.toString();
 
   if (result > max) {
