@@ -1,25 +1,31 @@
-<main
-  id="ember-welcome-page-id-selector"
-  data-ember-version="{{this.emberVersion}}"
->
-  <Instructions
+<main data-ember-version="{{this.emberVersion}}">
+  <Instructions />
+  <Calculator
     @calculate={{this.calculate}}
     @num01={{this.num01}}
     @num02={{this.num02}}
   />
-  <div id="steps" data-karatsuba-target="steps" class="steps inactive">
+  <div id="steps" class="steps inactive">
     {{#each this.figures as |figure|}}
-      <Figure
-        @level={{figure.level}}
-        @steps={{figure.steps}}
-        @stepsR={{figure.stepsR}}
-        @divider={{figure.divider}}
-        @result={{result figure.stepsR}}
-        @levelAmount={{this.figures.length}}
-        @calculate={{this.calculate}}
-        @stepSavings={{figure.stepSavings}}
-        @numsInput={{figure.numsInput}}
-      />
+      <div class={{concat "steps__row steps__row" figure.level}}>
+        <StepSavings
+          @numsInput={{array this.num01 this.num02}}
+          @stepSavings={{@stepSavings}}
+        />
+        <Figure
+          @level={{figure.level}}
+          @steps={{figure.steps}}
+          @divider={{figure.divider}}
+          @resultF={{resultF
+            (multiply (get figure.steps.b 0) (get figure.steps.b 1))
+            (multiply (get figure.steps.c 0) (get figure.steps.c 1))
+            (multiply (get figure.steps.e 0) (get figure.steps.e 1))
+          }}
+          @levelAmount={{this.figures.length}}
+          @calculate={{this.calculate}}
+          @stepSavings={{figure.stepSavings}}
+        />
+      </div>
     {{/each}}
   </div>
 </main>

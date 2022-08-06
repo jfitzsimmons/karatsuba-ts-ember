@@ -1,13 +1,12 @@
-    <div id="stepG" class="step stepG blue">
-      <div class="step__label">G</div>
-      {{@stepsR.[0]}}<span class="zeros">{{trailingZeros @divider 2}}</span
-      ><br />
-      + {{@result}}<span class="zeros"
-        >{{trailingZeros @divider}}</span
-      ><br />
-      + {{@stepsR.[1]}}
-      <hr />
+<div id="stepG" class="step stepG blue">
+  <div class="step__label">G</div>
+  {{get @stepsR 0}}<span class="zeros">{{trailingZeros @divider 2}}</span><br />
+  +
+  {{@resultF}}<span class="zeros">{{trailingZeros @divider}}</span><br />
+  +
+  {{get @stepsR 1}}
+  <hr />
 
-      <span id="result">{{resultPrint @stepsR @divider}}</span>
-      <br />
-    </div>
+  <span id="result">{{resultPrint @stepsR @divider}}</span>
+  <br />
+</div>

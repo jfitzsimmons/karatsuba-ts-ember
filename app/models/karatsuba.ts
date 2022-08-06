@@ -6,7 +6,6 @@ export interface Steps {
 export interface Figure {
   level: string;
   steps: Steps;
-  stepsR: [number, number, number];
   divider: number;
   stepSavings: [number, number];
   numsInput: [number, number];

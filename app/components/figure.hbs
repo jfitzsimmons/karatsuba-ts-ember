@@ -1,64 +1,69 @@
-<div class={{concat "steps__row steps__row" @level}}>
-  <StepSavings @numsInput={{@numsInput}} @stepSavings={{@stepSavings}} />
-  <div id="stepA" class="step stepA karat">
-    <div class="step__label">A</div>
-    <div class="stepA__grid">
-      <div>{{get @steps.b 0}}</div>
-      <div>{{get @steps.c 0}}</div>
-      <div>{{get @steps.b 1}}</div>
-      <div>{{get @steps.c 1}}</div>
-    </div>
+<div id="stepA" class="step stepA karat">
+  <div class="step__label">A</div>
+  <div class="stepA__grid">
+    <div>{{get @steps.b 0}}</div>
+    <div>{{get @steps.c 0}}</div>
+    <div>{{get @steps.b 1}}</div>
+    <div>{{get @steps.c 1}}</div>
   </div>
-  <Bce
-    @bcelevel={{@level}}
-    @step={{@steps.b}}
-    @letter="B"
-    @classColor={{getClassColor (get @steps.b 0) (get @steps.b 1)}}
-    @stepResult={{multiply (get @steps.b 0) (get @steps.b 1)}}
-    @calculate={{@calculate}}
-    @isDouble={{isDouble (get @steps.b 0) (get @steps.b 1)}}
-  />
-  <Bce
-    @bcelevel={{@level}}
-    @step={{@steps.c}}
-    @letter="C"
-    @classColor={{getClassColor (get @steps.c 0) (get @steps.c 1)}}
-    @stepResult={{multiply (get @steps.c 0) (get @steps.c 1)}}
-    @calculate={{@calculate}}
-    @isDouble={{isDouble (get @steps.c 0) (get @steps.c 1)}}
-  />
-  <div id="stepD" class="step stepD blue">
-    <div class="step__label">D</div>
-    {{get @steps.b 0}}
-    +
-    {{get @steps.c 0}}
-    =
-    {{get @steps.e 0}}
-    <br />
-    {{get @steps.b 1}}
-    +
-    {{get @steps.c 1}}
-    =
-    {{get @steps.e 1}}
-  </div>
-  <Bce
-    @bcelevel={{@level}}
-    @step={{@steps.e}}
-    @letter="E"
-    @classColor={{getClassColor (get @steps.e 0) (get @steps.e 1)}}
-    @stepResult={{multiply (get @steps.e 0) (get @steps.e 1)}}
-    @calculate={{@calculate}}
-    @isDouble={{isDouble (get @steps.e 0) (get @steps.e 1)}}
-  />
-  <div id="stepF" class="step stepF blue">
-    <div class="step__label">F</div>
-    {{get @stepsR 2}}<br />
-    -
-    {{get @stepsR 1}}<br />
-    -
-    {{get @stepsR 0}}
-    <hr />
-    {{@result}}
-  </div>
-  <Result @stepsR={{@stepsR}} @divider={{@divider}} @result={{@result}} />
 </div>
+<Bce
+  @bcelevel={{@level}}
+  @step={{@steps.b}}
+  @letter="B"
+  @classColor={{getClassColor (get @steps.b 0) (get @steps.b 1)}}
+  @stepResult={{multiply (get @steps.b 0) (get @steps.b 1)}}
+  @calculate={{@calculate}}
+  @isDouble={{isDouble (get @steps.b 0) (get @steps.b 1)}}
+/>
+<Bce
+  @bcelevel={{@level}}
+  @step={{@steps.c}}
+  @letter="C"
+  @classColor={{getClassColor (get @steps.c 0) (get @steps.c 1)}}
+  @stepResult={{multiply (get @steps.c 0) (get @steps.c 1)}}
+  @calculate={{@calculate}}
+  @isDouble={{isDouble (get @steps.c 0) (get @steps.c 1)}}
+/>
+<div id="stepD" class="step stepD blue">
+  <div class="step__label">D</div>
+  {{get @steps.b 0}}
+  +
+  {{get @steps.c 0}}
+  =
+  {{get @steps.e 0}}
+  <br />
+  {{get @steps.b 1}}
+  +
+  {{get @steps.c 1}}
+  =
+  {{get @steps.e 1}}
+</div>
+<Bce
+  @bcelevel={{@level}}
+  @step={{@steps.e}}
+  @letter="E"
+  @classColor={{getClassColor (get @steps.e 0) (get @steps.e 1)}}
+  @stepResult={{multiply (get @steps.e 0) (get @steps.e 1)}}
+  @calculate={{@calculate}}
+  @isDouble={{isDouble (get @steps.e 0) (get @steps.e 1)}}
+/>
+<div id="stepF" class="step stepF blue">
+  <div class="step__label">F</div>
+  {{multiply (get @steps.e 0) (get @steps.e 1)}}<br />
+  -
+  {{multiply (get @steps.c 0) (get @steps.c 1)}}<br />
+  -
+  {{multiply (get @steps.b 0) (get @steps.b 1)}}
+  <hr />
+  {{@resultF}}
+</div>
+<Result
+  @stepsR={{array
+    (multiply (get @steps.b 0) (get @steps.b 1))
+    (multiply (get @steps.c 0) (get @steps.c 1))
+    (multiply (get @steps.e 0) (get @steps.e 1))
+  }}
+  @divider={{@divider}}
+  @resultF={{@resultF}}
+/>
