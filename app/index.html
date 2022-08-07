@@ -5,11 +5,10 @@
     <title>KaratsubaTsEmber</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="{{rootURL}}assets/favicon.ico" />
 
     {{content-for "head"}}
-
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css" />
+    <base href="{{rootURL}}" />
+    <link integrity="" rel="stylesheet" href="assets/vendor.css" />
     <link
       integrity=""
       rel="stylesheet"
@@ -20,6 +19,7 @@
       rel="stylesheet"
       href="{{rootURL}}assets/components.css"
     />
+    <link integrity="" rel="icon" href="{{rootURL}}assets/favicon.ico" />
 
     {{content-for "head-footer"}}
   </head>
