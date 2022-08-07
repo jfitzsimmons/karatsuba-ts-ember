@@ -1,11 +1,11 @@
 {
   "folders": [
-    {
-      "path": "."
-    },
-    {
-      "path": "../turbo-stimulus-ts"
-    }
-  ],
+	{
+		"path": "."
+	},
+	{
+		"path": "../turbo-stimulus-ts"
+	}
+],
   "settings": {}
 }

@@ -5,6 +5,7 @@ module.exports = function (environment) {
     modulePrefix: 'karatsuba-ts-ember',
     environment,
     rootURL: '/',
+    routerRootURL: '/',
     locationType: 'history',
     EmberENV: {
       FEATURES: {
@@ -40,6 +41,9 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
+    //make vartestjpf
+    ENV.routerRootURL = '/karatsuba-ts-ember/';
+    //ENV.baseURL = '/karatsuba-ts-ember/';
     // here you can enable a production-specific feature
   }
 

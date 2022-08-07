@@ -1,10 +1,14 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-
+const env = EmberApp.env();
+const isProductionLikeBuild = ['production', 'staging'].indexOf(env) > -1;
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
-    // Add options here
+    fingerprint: {
+      enabled: isProductionLikeBuild,
+      prepend: 'https://jfitzsimmons.github.io/karatsuba-ts-ember/',
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated

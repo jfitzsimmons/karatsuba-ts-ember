@@ -1,3 +1,29 @@
+.jump-to {
+  color: #fff;
+  text-align: right;
+  text-decoration: none;
+  position: sticky;
+  top: 0;
+  right: 0;
+  width: 96%;
+}
+.jump-to > span {
+  background: #0017;
+  padding: 10px;
+  display: inline-block;
+  box-shadow: 0 0 12px 0px #4188bb33, inset 0 1px 10px 0px #b844b822;
+  transition: 500ms;
+}
+
+.jump-to > span:last-child {
+  font-size: 1.5rem;
+}
+.jump-to > span:hover {
+  background: #001f;
+  text-decoration: underline;
+  box-shadow: 0 0 50px 0px #4188bb55, inset 0 5px 40px 0px #b844b833;
+  transition: 500ms;
+}
 .calculator {
   display: flex;
   flex-direction: column;
