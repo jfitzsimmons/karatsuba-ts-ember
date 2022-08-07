@@ -8,7 +8,7 @@ module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
     fingerprint: {
       enabled: isProductionLikeBuild,
-      prepend: '/karatsuba-ts-ember/',
+      prepend: 'https://jfitzsimmons.github.io/karatsuba-ts-ember/',
     },
     // Add options here
   });
