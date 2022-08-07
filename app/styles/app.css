@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
   font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
