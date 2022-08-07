@@ -42,8 +42,7 @@ module.exports = function (environment) {
 
   if (environment === 'production') {
     //make vartestjpf
-    ENV.rootURL = 'https://jfitzsimmons.github.io/karatsuba-ts-ember/';
-    ENV.routerRootURL = 'https://jfitzsimmons.github.io/';
+    ENV.routerRootURL = '/karatsuba-ts-ember/';
     //ENV.baseURL = '/karatsuba-ts-ember/';
     // here you can enable a production-specific feature
   }
