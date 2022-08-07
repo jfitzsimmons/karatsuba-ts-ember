@@ -3,7 +3,7 @@ import config from 'karatsuba-ts-ember/config/environment';
 
 export default class Router extends EmberRouter {
   location = config.locationType;
-  rootURL = config.rootURL;
+  rootURL = config.routerRootURL;
 }
 
 Router.map(function () {});
