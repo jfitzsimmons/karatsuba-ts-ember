@@ -6,6 +6,7 @@
   top: 0;
   right: 0;
   width: 96%;
+  margin-bottom: -60px;
 }
 .jump-to > span {
   background: #0017;
@@ -13,6 +14,8 @@
   display: inline-block;
   box-shadow: 0 0 12px 0px #4188bb33, inset 0 1px 10px 0px #b844b822;
   transition: 500ms;
+  margin-bottom: -10px;
+  font-size: 14px;
 }
 
 .jump-to > span:last-child {
