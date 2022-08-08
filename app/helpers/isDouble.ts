@@ -1,7 +1,8 @@
 import { helper } from '@ember/component/helper';
+import { isSingle } from '../utils/base';
 
 function isDouble([num1, num2]: [number, number]) {
-  return num1 < 10 || num2 < 10 ? false : true;
+  return !isSingle(num1, num2);
 }
 
 export default helper(isDouble);

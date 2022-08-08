@@ -1,8 +1,12 @@
 <div id="stepG" class="step stepG blue">
   <div class="step__label">G</div>
-  {{get @stepsR 0}}<span class="zeros">{{trailingZeros @divider 2}}</span><br />
+  {{get @stepsR 0}}<span class="zeros">{{trailingZerosHelper
+      @divider
+      2
+    }}</span><br />
   +
-  {{@resultF}}<span class="zeros">{{trailingZeros @divider}}</span><br />
+  {{@resultF}}<span class="zeros">{{trailingZerosHelper @divider 1}}</span><br
+  />
   +
   {{get @stepsR 1}}
   <hr />

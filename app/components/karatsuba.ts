@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { Figure } from '../models/karatsuba';
-import { isSingle } from '../helpers/base';
+import { isSingle } from '../utils/base';
 
 export default class K extends Component {
   static bce: [number, number][] = [];

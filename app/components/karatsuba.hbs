@@ -9,8 +9,8 @@
     {{#each this.figures as |figure|}}
       <div class={{concat "steps__row steps__row" figure.level}}>
         <StepSavings
-          @numsInput={{array this.num01 this.num02}}
-          @stepSavings={{@stepSavings}}
+          @numsInput={{array (get figure.numsInput 0) (get figure.numsInput 1)}}
+          @stepSavings={{figure.stepSavings}}
         />
         <Figure
           @level={{figure.level}}

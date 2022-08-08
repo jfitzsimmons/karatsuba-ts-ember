@@ -1,8 +1,8 @@
 import { helper } from '@ember/component/helper';
-import { trailingZeros } from './base';
+import { trailingZeros } from '../utils/base';
 
 function resultPrint([stepsR, divider]: [[number, number, number], number]) {
-  const max = 3602879702092599;
+  const max = 9999999700000000;
 
   const result: number =
     stepsR[0] * 10 ** (divider * 2) +
@@ -13,7 +13,7 @@ function resultPrint([stepsR, divider]: [[number, number, number], number]) {
 
   if (result > max) {
     const resultPrint1st16 = resultPrint.substring(0, 14);
-    const diff = resultPrint.length - 14; //max.length-1;
+    const diff = resultPrint.length - 14;
     const b = stepsR[0].toString() + trailingZeros(divider * 2);
     const c = stepsR[1].toString();
     const stepF =
