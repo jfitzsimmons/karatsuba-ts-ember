@@ -9,7 +9,7 @@
   margin-bottom: -60px;
 }
 .jump-to > span {
-  background: #0017;
+  background-color: #0017;
   padding: 10px;
   display: inline-block;
   box-shadow: 0 0 12px 0px #4188bb33, inset 0 1px 10px 0px #b844b822;
@@ -22,7 +22,7 @@
   font-size: 1.5rem;
 }
 .jump-to > span:hover {
-  background: #001f;
+  background-color: #001f;
   text-decoration: underline;
   box-shadow: 0 0 50px 0px #4188bb55, inset 0 5px 40px 0px #b844b833;
   transition: 500ms;
@@ -31,7 +31,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #001;
+  background-color: #001;
   box-shadow: 0 0 50px 0px #4188bb33, inset 0 5px 40px 0px #b844b822;
   transition: 500ms;
   padding: 20px;
@@ -64,7 +64,7 @@
   position: relative;
   margin-left: 10px;
   margin-right: 10px;
-  background: #88887711;
+  background-color: #88887711;
   border-radius: 10px 10px 0 0;
   display: flex;
   flex-direction: column;
@@ -72,7 +72,7 @@
 
 label {
   margin-bottom: 10px;
-  background: #001;
+  background-color: #001;
   padding: 10px;
   font-size: 14px;
 }
@@ -172,7 +172,7 @@ input:focus ~ .input__span {
   border-bottom: 0;
   border-radius: 40px;
   box-shadow: 0 -12px 20px 0 #0018;
-  background: #8891;
+  background-color: #8891;
 }
 .steps__savings {
   margin: 20px;
@@ -206,13 +206,13 @@ input:focus ~ .input__span {
 
 .inactive {
   filter: saturate(70%) sepia(30%);
-  background: #88887711;
+  background-color: #88887711;
   opacity: 0.9;
   transition: 500ms;
 }
 .inactive:hover {
   filter: saturate(100%);
-  background: #8870;
+  background-color: #8870;
   opacity: 1;
   transition: 500ms;
 }
@@ -226,7 +226,7 @@ input:focus ~ .input__span {
   min-width: 350px;
   width: 40%;
   letter-spacing: 1px;
-  background: #88887711;
+  background-color: #88887711;
   border-top: 3px dashed #eef;
   border-bottom: 3px dashed #eef;
   margin-top: 40px;
@@ -285,7 +285,7 @@ input:focus ~ .input__span {
 
 .step__label {
   border-radius: 50%;
-  background: #7f7f78;
+  background-color: #7f7f78;
   color: #101011;
   width: 20px;
   text-align: center;
@@ -295,7 +295,7 @@ input:focus ~ .input__span {
 }
 
 .active .step__label {
-  background: #ffffffdd;
+  background-color: #ffffffdd;
 }
 
 .red,
@@ -308,11 +308,11 @@ input:focus ~ .input__span {
 }
 
 .red > .step__label {
-  background: #b844b8;
+  background-color: #b844b8;
 }
 
 .blue > .step__label {
-  background: #4188bb;
+  background-color: #4188bb;
 }
 
 .gray {
@@ -352,7 +352,7 @@ input:focus ~ .input__span {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #020202;
+  background-color: #020202;
   color: #7f7f78;
   margin: 3px;
   padding: 3px;
@@ -393,7 +393,7 @@ input:focus ~ .input__span {
   position: absolute;
   border-radius: 50%;
   border: 0;
-  background: #b844b8;
+  background-color: #b844b8;
   bottom: 25px;
   transition: 1s;
   height: 20px;
@@ -405,7 +405,7 @@ input:focus ~ .input__span {
 }
 
 .step__button.active {
-  background: #6d2e6e;
+  background-color: #6d2e6e;
   color: #6d2e6e;
   bottom: -10px;
   transition: 500ms;
