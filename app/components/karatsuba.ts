@@ -54,9 +54,9 @@ export default class K extends Component {
 
   createFigure(level: string, nums: [number, number]) {
     const levelNumber: number = parseInt(level.slice(-1));
-    const e: [number, number] | null = K.bce[2]! ? K.bce[2]! : K.singles[2]!;
-    const b: [number, number] = K.bce[0]! ? K.bce[0]! : K.singles[0]!;
-    const c: [number, number] = K.bce[1]! ? K.bce[1]! : K.singles[1]!;
+    const e: [number, number] | null = K.bce[2] ? K.bce[2] : K.singles[2]!;
+    const b: [number, number] = K.bce[0] ? K.bce[0] : K.singles[0]!;
+    const c: [number, number] = K.bce[1] ? K.bce[1] : K.singles[1]!;
     const standardSteps = nums[0].toString().length * nums[1].toString().length;
 
     const figure: Figure = {

@@ -26,3 +26,7 @@ You will need the following things properly installed on your computer.
 - `npm run start`
 - Visit your app at [http://localhost:4200](http://localhost:4200).
 - Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+
+## Acknowledgments
+
+- This project is inspired from the graphics of [Lucy Reading-Ikkanda / Quanta Magazine.](https://www.quantamagazine.org/mathematicians-discover-the-perfect-way-to-multiply-20190411/)
