@@ -2,7 +2,7 @@
 
 Coded with Ember, Typscript and Handlebars
 
-[![Karatsuba Calculator Preview Image](https://raw.githubusercontent.com/jfitzsimmons/karatsuba-ts-ember/main/preview.png)](https://visual-timer.netlify.app/ 'Visual Timer Link')
+[![Karatsuba Calculator Preview Image](https://raw.githubusercontent.com/jfitzsimmons/karatsuba-ts-ember/main/preview.png)](https://jfitzsimmons.github.io/karatsuba-ts-ember/ 'Karatsuba Calculator Link')
 
 **Explanation**  
 As numbers increase in size, the Karatsuba method can be used repeatedly, breaking large numbers into small pieces to save an increasing number of single-digit multiplications.
